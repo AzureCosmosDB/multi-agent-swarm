@@ -40,8 +40,8 @@ The personal shopper example includes four main agents to handle various custome
 Clone the repository:
 
 ```shell
-git clone https://github.com/Azure-Samples/cosmosdb-multi-agent-swarm
-cd cosmosdb-multi-agent-swarm
+git clone https://github.com/AzureCosmosDB/multi-agent-swarm
+cd multi-agent-swarm
 ```
 
 Install dependencies:
