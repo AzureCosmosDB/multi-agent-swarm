@@ -1,5 +1,8 @@
 import datetime
 import random
+
+from swarm.repl.repl import process_and_print_streaming_response, pretty_print_messages
+
 import azure_cosmos_db
 import azure_open_ai
 from swarm import Swarm, Agent
@@ -217,6 +220,38 @@ for f in triage_agent.functions:
 
 triage_agent.functions = [transfer_to_sales, transfer_to_refunds, transfer_to_product]
 
+def run_demo_loop(
+        starting_agent, context_variables=None, stream=False, debug=False
+) -> None:
+    client = swarm_client
+    print("Starting Swarm CLI 🐝")
+
+    messages = []
+    agent = starting_agent
+
+    while True:
+        user_input = input("\033[90mUser\033[0m: ")
+        messages.append({"role": "user", "content": user_input})
+
+        response = client.run(
+            agent=agent,
+            messages=messages,
+            context_variables=context_variables or {},
+            stream=stream,
+            debug=debug,
+        )
+
+        if stream:
+            response = process_and_print_streaming_response(response)
+        else:
+            pretty_print_messages(response.messages)
+
+        messages.extend(response.messages)
+        agent = response.agent
+
 if __name__ == "__main__":
     # Run the demo loop
     run_demo_loop(triage_agent, debug=False)
+
+
+
