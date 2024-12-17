@@ -1,7 +1,7 @@
 import gradio as gr
 from swarm import Swarm, Agent
 from multi_agent_service import triage_agent, sales_agent, refunds_agent, product_agent  # Import all agents
-from src.app import azure_open_ai
+import azure_open_ai
 
 # Initialize Swarm client
 client = Swarm(client=azure_open_ai.aoai_client)
