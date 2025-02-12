@@ -76,8 +76,6 @@ def add_user(user_id, first_name, last_name, email, phone):
     }
     try:
         container.create_item(body=user)
-        rangeIds = container.client_connection._ReadPartitionKeyRanges()
-        container.query_items_change_feed(partition_key_range_id="0")
     except exceptions.CosmosResourceExistsError:
         print(f"User with user_id {user_id} already exists.")
 
