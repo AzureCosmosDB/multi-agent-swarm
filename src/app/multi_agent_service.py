@@ -12,26 +12,26 @@ from swarm.repl import run_demo_loop
 swarm_client = Swarm(client=azure_open_ai.aoai_client)
 
 
-def refund_item(user_id, item_id):
-    """Initiate a refund based on the user ID and item ID.
-    Takes as input arguments in the format '{"user_id":1,"item_id":3}'
+def refund_item(user_id, product_id):
+    """Initiate a refund based on the user ID and product ID.
+    Takes as input arguments in the format '{"user_id":1,"product_id":3}'
     """
     try:
-        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.database_name)
-        container = database.get_container_client(azure_cosmos_db.purchase_history_container_name)
-        query = "SELECT c.amount FROM c WHERE c.user_id=@user_id AND c.item_id=@item_id"
+        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.DATABASE_NAME)
+        container = database.get_container_client(azure_cosmos_db.PURCHASE_HISTORY_CONTAINER)
+        query = "SELECT c.amount FROM c WHERE c.user_id=@user_id AND c.product_id=@product_id"
         parameters = [
             {"name": "@user_id", "value": int(user_id)},
-            {"name": "@item_id", "value": int(item_id)}
+            {"name": "@product_id", "value": int(product_id)}
         ]
         items = list(container.query_items(query=query, parameters=parameters, enable_cross_partition_query=True))
         if items:
             amount = items[0]['amount']
             # Refund the amount to the user
-            refund_message = f"Refunding ${amount} to user ID {user_id} for item ID {item_id}."
+            refund_message = f"Refunding ${amount} to user ID {user_id} for product ID {product_id}."
             return refund_message
         else:
-            refund_message = f"No purchase found for user ID {user_id} and item ID {item_id}. Refund initiated."
+            refund_message = f"No purchase found for user ID {user_id} and product ID {product_id}. Refund initiated."
             return refund_message
     except Exception as e:
         print(f"An error occurred during refund: {e}")
@@ -41,8 +41,8 @@ def notify_customer(user_id, method):
     """Notify a customer by their preferred method of either phone or email.
     Takes as input arguments in the format '{"user_id":1,"method":"email"}'"""
     try:
-        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.database_name)
-        container = database.get_container_client(azure_cosmos_db.users_container_name)
+        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.DATABASE_NAME)
+        container = database.get_container_client(azure_cosmos_db.USERS_CONTAINER)
         query = "SELECT c.email, c.phone FROM c WHERE c.user_id=@user_id"
         parameters = [{"name": "@user_id", "value": int(user_id)}]
         items = list(container.query_items(query=query, parameters=parameters, enable_cross_partition_query=True))
@@ -64,21 +64,22 @@ def order_item(user_id, product_id):
     """Place an order for a product based on the user ID and product ID.
     Takes as input arguments in the format '{"user_id":1,"product_id":2}'"""
     try:
-        date_of_purchase = datetime.datetime.now().isoformat()
-        item_id = random.randint(1, 300)
+        date_of_purchase = datetime.datetime.now().strftime("%d/%m/%Y")
 
-        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.database_name)
-        container = database.get_container_client(azure_cosmos_db.products_container_name)
-        query = "SELECT c.product_id, c.product_name, c.price FROM c WHERE c.product_id=@product_id"
+        database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.DATABASE_NAME)
+        container = database.get_container_client(azure_cosmos_db.PRODUCTS_CONTAINER)
+        query = "SELECT c.product_id, c.product_name, c.price, c.category FROM c WHERE c.product_id=@product_id"
         parameters = [{"name": "@product_id", "value": int(product_id)}]
         items = list(container.query_items(query=query, parameters=parameters, enable_cross_partition_query=True))
         if items:
             product = items[0]
-            product_id, product_name, price = product['product_id'], product['product_name'], product['price']
+            product_id, product_name, price, category = product['product_id'], product['product_name'], product[
+                'price'], product['category']
             print(f"Ordering product {product_name} for user ID {user_id}. The price is {price}.")
             # Add the purchase to the database
-            azure_cosmos_db.add_purchase(int(user_id), date_of_purchase, item_id, price)
-            order_item_message = f"Order placed for product {product_name} for user ID {user_id}. Item ID: {item_id}."
+            azure_cosmos_db.add_purchase(int(user_id), date_of_purchase, product_id, price, product_name,
+                                                category)
+            order_item_message = f"Order placed for product {product_name} for user ID {user_id}. product ID: {product_id}."
             return order_item_message
         else:
             order_item_message = f"Product {product_id} not found."
@@ -92,21 +93,21 @@ def product_information(user_prompt):
     Takes as input the user prompt as a string."""
     # Perform a vector search on the Cosmos DB container and return results to the agent
     vectors = azure_open_ai.generate_embedding(user_prompt)
-    vector_search_results = vector_search(azure_cosmos_db.products_container_name, vectors)
-    return vector_search_results
+    search_results = vector_search(vectors)
+    return search_results
 
 
 # Perform a vector search on the Cosmos DB container
-def vector_search(container, vectors, similarity_score=0.02, num_results=3):
+def vector_search(vectors, similarity_score=0.02, num_results=3):
     # Execute the query
-    database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.database_name)
-    container = database.get_container_client(azure_cosmos_db.products_container_name)
+    database = azure_cosmos_db.client.get_database_client(azure_cosmos_db.DATABASE_NAME)
+    container = database.get_container_client(azure_cosmos_db.PRODUCTS_CONTAINER)
     results = container.query_items(
         query='''
-        SELECT TOP @num_results c.product_id, c.price, c.product_description, VectorDistance(c.product_description_vector, @embedding) as SimilarityScore 
+        SELECT TOP @num_results c.product_id, c.product_name, c.category, c.price, c.product_description, VectorDistance(c.embedding, @embedding) as SimilarityScore 
         FROM c
-        WHERE VectorDistance(c.product_description_vector,@embedding) > @similarity_score
-        ORDER BY VectorDistance(c.product_description_vector,@embedding)
+        WHERE VectorDistance(c.embedding,@embedding) > @similarity_score
+        ORDER BY VectorDistance(c.embedding,@embedding)
         ''',
         parameters=[
             {"name": "@embedding", "value": vectors},
@@ -120,11 +121,6 @@ def vector_search(container, vectors, similarity_score=0.02, num_results=3):
     formatted_results = []
     for result in results:
         score = result.pop('SimilarityScore')
-        result['product_id'] = str(result['product_id'])
-        result['product_description'] = "product id " + result['product_id'] + ": " + result['product_description']
-        # add price to product_description as well
-        result['product_description'] += " price: " + str(result['price'])
-
         formatted_result = {
             'SimilarityScore': score,
             'document': result
@@ -134,12 +130,12 @@ def vector_search(container, vectors, similarity_score=0.02, num_results=3):
 
 
 # Initialize the database
-azure_cosmos_db.initialize_database()
+# azure_cosmos_db.initialize_database()
 
 # Preview tables
-azure_cosmos_db.preview_table("Users")
-azure_cosmos_db.preview_table("PurchaseHistory")
-azure_cosmos_db.preview_table("Products")
+# azure_cosmos_db.preview_table("Users")
+# azure_cosmos_db.preview_table("PurchaseHistory")
+# azure_cosmos_db.preview_table("Products")
 
 
 def transfer_to_sales():
@@ -163,11 +159,11 @@ def transfer_to_triage():
 refunds_agent = Agent(
     name="Refunds Agent",
     instructions="""You are a refund agent that handles all actions related to refunds after a return has been processed.
-    You must ask for both the user ID and item ID to initiate a refund. 
-    If item_id is present in the context information, use it. 
-    Otherwise, do not make any assumptions, you must ask for the item ID as well.
-    Ask for both user_id and item_id in one message.
-    Do not use any other context information to determine whether the right user id or item id has been provided - just accept the input as is.
+    You must ask for both the user ID and product ID to initiate a refund. 
+    If product_id is present in the context information, use it. 
+    Otherwise, do not make any assumptions, you must ask for the product ID as well.
+    Ask for both user_id and product_id in one message.
+    Do not use any other context information to determine whether the right user id or product id has been provided - just accept the input as is.
     If the user asks you to notify them, you must ask them what their preferred method of notification is. For notifications, you must
     ask them for user_id and method in one message.
     If the user asks you a question you cannot answer, transfer back to the triage agent.""",
@@ -176,7 +172,7 @@ refunds_agent = Agent(
 
 sales_agent = Agent(
     name="Sales Agent",
-    instructions="""You are a sales agent that handles all actions related to placing an order to purchase an item.
+    instructions="""You are a sales agent that handles all actions related to placing an order to purchase a product.
     Regardless of what the user wants to purchase, must ask for the user ID. 
     If the product id is present in the context information, use it. Otherwise, you must as for the product ID as well.
     An order cannot be placed without these two pieces of information. Ask for both user_id and product_id in one message.
@@ -192,7 +188,7 @@ product_agent = Agent(
     When calling the product_information function, do not make any assumptions 
     about the product id, or number the products in the response. Instead, use the product id from the response to 
     product_information and align that product id whenever referring to the corresponding product in the database. 
-    Only give the user very basic information about the product; the product name, id, and very short description.
+    Only give the user very basic information about the product; the product name, id, very short description, and the price.
     If the user asks for more information about any product, provide it. 
     If the user asks you a question you cannot answer, transfer back to the triage agent.
     """,
@@ -206,8 +202,8 @@ triage_agent = Agent(
     Otherwise, once you are ready to transfer to the right intent, call the tool to transfer to the right intent.
     You dont need to know specifics, just the topic of the request.
     If the user asks for product information, transfer to the Product Agent.
-    If the user request is about making an order or purchasing an item, transfer to the Sales Agent.
-    If the user request is about getting a refund on an item or returning a product, transfer to the Refunds Agent.
+    If the user request is about making an order or purchasing an product, transfer to the Sales Agent.
+    If the user request is about getting a refund on an product or returning a product, transfer to the Refunds Agent.
     When you need more information to triage the request to an agent, ask a direct question without explaining why you're asking it.
     Do not share your thought process with the user! Do not make unreasonable assumptions on behalf of user.""",
     agents=[sales_agent, refunds_agent, product_agent],
@@ -219,6 +215,7 @@ for f in triage_agent.functions:
     print(f.__name__)
 
 triage_agent.functions = [transfer_to_sales, transfer_to_refunds, transfer_to_product]
+
 
 def run_demo_loop(
         starting_agent, context_variables=None, stream=False, debug=False
@@ -249,9 +246,7 @@ def run_demo_loop(
         messages.extend(response.messages)
         agent = response.agent
 
+
 if __name__ == "__main__":
     # Run the demo loop
     run_demo_loop(triage_agent, debug=False)
-
-
-
