@@ -1,0 +1,26 @@
+[
+  {
+    "user_id": 1,
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice@test.com",
+    "phone": "123-456-7890"
+
+  },
+  {
+    "user_id": 2,
+    "first_name": "Bob",
+    "last_name": "Johnson",
+    "email": "bob@test.com",
+    "phone": "234-567-8901"
+
+  },
+  {
+    "user_id": 3,
+    "first_name": "Sarah",
+    "last_name": "Brown",
+    "email": "sarah@test.com",
+    "phone": "555-567-8901"
+
+  }
+]

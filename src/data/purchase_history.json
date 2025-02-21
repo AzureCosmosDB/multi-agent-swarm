@@ -1,0 +1,1802 @@
+[
+    {
+        "id": "1_1_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 1,
+        "product_name": "Ray-Ban Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "2_2_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 2,
+        "product_name": "Leuchtturm1917 Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "29.99"
+    },
+    {
+        "id": "2_3_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 3,
+        "product_name": "Fitbit Treadmill",
+        "category": "Fitness & Health",
+        "amount": "899.99"
+    },
+    {
+        "id": "3_4_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 4,
+        "product_name": "LG Camera",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "1_5_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 5,
+        "product_name": "Field Notes Planner",
+        "category": "Books & Stationery",
+        "amount": "15.99"
+    },
+    {
+        "id": "1_6_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 6,
+        "product_name": "Ninja Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_7_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 7,
+        "product_name": "Breville Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "3_8_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 8,
+        "product_name": "Fitbit Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_9_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 9,
+        "product_name": "Gucci Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "1200.00"
+    },
+    {
+        "id": "1_10_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 10,
+        "product_name": "Gucci Belt",
+        "category": "Fashion & Accessories",
+        "amount": "450.00"
+    },
+    {
+        "id": "1_11_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 11,
+        "product_name": "Samsung Headphones",
+        "category": "Electronics",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_12_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 12,
+        "product_name": "Adidas Exercise Bike",
+        "category": "Fitness & Health",
+        "amount": "499.99"
+    },
+    {
+        "id": "1_13_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 13,
+        "product_name": "Apple Tablet",
+        "category": "Electronics",
+        "amount": "599.99"
+    },
+    {
+        "id": "2_14_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 14,
+        "product_name": "Breville Blender",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "2_15_14/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "14/09/2023",
+        "product_id": 15,
+        "product_name": "Tumi Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "1_16_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 16,
+        "product_name": "HP Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "49.99"
+    },
+    {
+        "id": "3_17_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 17,
+        "product_name": "HP Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "49.99"
+    },
+    {
+        "id": "1_18_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 18,
+        "product_name": "Tumi Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_19_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 19,
+        "product_name": "Bose Smartwatch",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "2_20_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 20,
+        "product_name": "Tumi Belt",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "3_21_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 21,
+        "product_name": "Tumi Watch",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "2_22_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 22,
+        "product_name": "Gucci Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "1500.00"
+    },
+    {
+        "id": "2_23_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 23,
+        "product_name": "Montblanc Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "120.00"
+    },
+    {
+        "id": "2_24_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 24,
+        "product_name": "KitchenAid Toaster",
+        "category": "Home & Kitchen",
+        "amount": "79.99"
+    },
+    {
+        "id": "2_25_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 25,
+        "product_name": "Ray-Ban Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "75.00"
+    },
+    {
+        "id": "2_26_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 26,
+        "product_name": "Garmin Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "129.99"
+    },
+    {
+        "id": "2_27_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 27,
+        "product_name": "Field Notes Notebook",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "1_28_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 28,
+        "product_name": "Bose Laptop",
+        "category": "Electronics",
+        "amount": "1200.00"
+    },
+    {
+        "id": "1_29_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 29,
+        "product_name": "Coach Belt",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_30_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 30,
+        "product_name": "Ninja Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "3_31_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 31,
+        "product_name": "Dell Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "79.99"
+    },
+    {
+        "id": "3_32_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 32,
+        "product_name": "Adidas Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "3_33_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 33,
+        "product_name": "LG Laptop",
+        "category": "Electronics",
+        "amount": "1200.00"
+    },
+    {
+        "id": "1_34_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 34,
+        "product_name": "Rhodia Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "15.99"
+    },
+    {
+        "id": "1_35_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 35,
+        "product_name": "KitchenAid Coffee Maker",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_36_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 36,
+        "product_name": "Breville Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "2_37_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 37,
+        "product_name": "Breville Blender",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "3_38_date_of_purchase",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 38,
+        "product_name": "Adidas Treadmill",
+        "category": "Fitness & Health",
+        "amount": "1200.00"
+    },
+    {
+        "id": "3_39_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 39,
+        "product_name": "Field Notes Pen Set",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "1_40_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 40,
+        "product_name": "Under Armour Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "59.99"
+    },
+    {
+        "id": "1_41_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 41,
+        "product_name": "Coach Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_42_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 42,
+        "product_name": "Fitbit Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "1_43_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 43,
+        "product_name": "Gucci Handbag",
+        "category": "Fashion & Accessories",
+        "amount": "2500"
+    },
+    {
+        "id": "1_44_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 44,
+        "product_name": "Garmin Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_45_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 45,
+        "product_name": "Samsung Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "79.99"
+    },
+    {
+        "id": "3_46_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 46,
+        "product_name": "Cuisinart Toaster",
+        "category": "Home & Kitchen",
+        "amount": "79.99"
+    },
+    {
+        "id": "3_47_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 47,
+        "product_name": "Michael Kors Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "150.00"
+    },
+    {
+        "id": "2_48_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 48,
+        "product_name": "Gucci Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "1_49_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 49,
+        "product_name": "Field Notes Pen Set",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "2_50_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 50,
+        "product_name": "Rhodia Planner",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_51_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 51,
+        "product_name": "Field Notes Notebook",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "3_52_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 52,
+        "product_name": "Adidas Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "99.99"
+    },
+    {
+        "id": "1_53_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 53,
+        "product_name": "Hamilton Beach Toaster",
+        "category": "Home & Kitchen",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_54_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 54,
+        "product_name": "Parker Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_55_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "14/07/2023",
+        "product_id": 55,
+        "product_name": "Coach Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "2_56_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 56,
+        "product_name": "Apple Tablet",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_57_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 57,
+        "product_name": "Fossil Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_58_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 58,
+        "product_name": "Leuchtturm1917 Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "29.99"
+    },
+    {
+        "id": "2_59_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 59,
+        "product_name": "Breville Vacuum Cleaner",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "3_60_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 60,
+        "product_name": "Under Armour Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_61_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 61,
+        "product_name": "Garmin Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "45.99"
+    },
+    {
+        "id": "3_62_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 62,
+        "product_name": "Reebok Exercise Bike",
+        "category": "Fitness & Health",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_63_date_of_purchase",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 63,
+        "product_name": "Adidas Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "29.99"
+    },
+    {
+        "id": "3_64_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 64,
+        "product_name": "Rhodia Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_65_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 65,
+        "product_name": "Reebok Treadmill",
+        "category": "Fitness & Health",
+        "amount": "1200.00"
+    },
+    {
+        "id": "3_66_date_of_purchase",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 66,
+        "product_name": "Moleskine Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_67_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 67,
+        "product_name": "Ray-Ban Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_68_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 68,
+        "product_name": "Leuchtturm1917 Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_69_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 69,
+        "product_name": "Ray-Ban Belt",
+        "category": "Fashion & Accessories",
+        "amount": "75.00"
+    },
+    {
+        "id": "1_70_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 70,
+        "product_name": "Fitbit Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "39.99"
+    },
+    {
+        "id": "3_71_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 71,
+        "product_name": "Fossil Watch",
+        "category": "Fashion & Accessories",
+        "amount": "199.99"
+    },
+    {
+        "id": "2_72_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 72,
+        "product_name": "Under Armour Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "79.99"
+    },
+    {
+        "id": "3_73_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 73,
+        "product_name": "Leuchtturm1917 Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "19.99"
+    },
+    {
+        "id": "3_74_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 74,
+        "product_name": "Coach Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_75_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 75,
+        "product_name": "Fossil Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_76_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 76,
+        "product_name": "Field Notes Planner",
+        "category": "Books & Stationery",
+        "amount": "15.99"
+    },
+    {
+        "id": "1_77_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 77,
+        "product_name": "Gucci Handbag",
+        "category": "Fashion & Accessories",
+        "amount": "2500.00"
+    },
+    {
+        "id": "1_78_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 78,
+        "product_name": "LG Tablet",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "3_79_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 79,
+        "product_name": "Adidas Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "1_80_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 80,
+        "product_name": "Parker Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_81_date_of_purchase",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 81,
+        "product_name": "Hamilton Beach Microwave",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_82_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 82,
+        "product_name": "Hamilton Beach Microwave",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_83_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 83,
+        "product_name": "Moleskine Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_84_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 84,
+        "product_name": "Field Notes Notebook",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "3_85_date_of_purchase",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 85,
+        "product_name": "Dyson Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "299.99"
+    },
+    {
+        "id": "2_86_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 86,
+        "product_name": "Fitbit Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_87_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 87,
+        "product_name": "Garmin Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "149.99"
+    },
+    {
+        "id": "2_88_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 88,
+        "product_name": "Samsung Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "129.99"
+    },
+    {
+        "id": "2_89_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 89,
+        "product_name": "Nike Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "129.99"
+    },
+    {
+        "id": "2_90_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 90,
+        "product_name": "Montblanc Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "120.00"
+    },
+    {
+        "id": "2_91_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 91,
+        "product_name": "Under Armour Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_92_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 92,
+        "product_name": "Dell Smartphone",
+        "category": "Electronics",
+        "amount": "699.99"
+    },
+    {
+        "id": "3_93_15/07/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 93,
+        "product_name": "Coach Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_94_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 94,
+        "product_name": "Dyson Microwave",
+        "category": "Home & Kitchen",
+        "amount": "299.99"
+    },
+    {
+        "id": "1_95_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 95,
+        "product_name": "Samsung Tablet",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "3_96_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 96,
+        "product_name": "Coach Handbag",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "2_97_date_of_purchase",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 97,
+        "product_name": "HP Smartwatch",
+        "category": "Electronics",
+        "amount": "199.99"
+    },
+    {
+        "id": "1_98_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 98,
+        "product_name": "Leuchtturm1917 Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_99_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 99,
+        "product_name": "Field Notes Pen Set",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "3_100_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 100,
+        "product_name": "LG Laptop",
+        "category": "Electronics",
+        "amount": "1200.00"
+    },
+    {
+        "id": "2_101_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 101,
+        "product_name": "Moleskine Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_102_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 102,
+        "product_name": "Reebok Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_103_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 103,
+        "product_name": "Parker Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_104_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 104,
+        "product_name": "KitchenAid Blender",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "3_105_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 105,
+        "product_name": "Sony Smartwatch",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "2_106_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 106,
+        "product_name": "Garmin Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "79.99"
+    },
+    {
+        "id": "2_107_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 107,
+        "product_name": "Fossil Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "75.00"
+    },
+    {
+        "id": "2_108_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 108,
+        "product_name": "Nike Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_109_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 109,
+        "product_name": "Samsung Camera",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "2_110_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 110,
+        "product_name": "Gucci Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "3_111_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 111,
+        "product_name": "Leuchtturm1917 Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_112_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 112,
+        "product_name": "Under Armour Exercise Bike",
+        "category": "Fitness & Health",
+        "amount": "599.99"
+    },
+    {
+        "id": "1_113_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 113,
+        "product_name": "Samsung Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "79.99"
+    },
+    {
+        "id": "1_114_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 114,
+        "product_name": "Hamilton Beach Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "89.99"
+    },
+    {
+        "id": "3_115_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 115,
+        "product_name": "Ninja Microwave",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "1_116_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 116,
+        "product_name": "Reebok Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_117_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 117,
+        "product_name": "Parker Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_118_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 118,
+        "product_name": "Tumi Watch",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "1_119_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 119,
+        "product_name": "Garmin Treadmill",
+        "category": "Fitness & Health",
+        "amount": "1200.00"
+    },
+    {
+        "id": "3_120_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 120,
+        "product_name": "Fitbit Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "99.99"
+    },
+    {
+        "id": "3_121_15/07/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 121,
+        "product_name": "Under Armour Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_122_15/07/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 122,
+        "product_name": "Samsung Laptop",
+        "category": "Electronics",
+        "amount": "1200.00"
+    },
+    {
+        "id": "1_123_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 123,
+        "product_name": "Bose Tablet",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_124_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 124,
+        "product_name": "Michael Kors Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "150.00"
+    },
+    {
+        "id": "3_125_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 125,
+        "product_name": "Tumi Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "2_126_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 126,
+        "product_name": "Fossil Belt",
+        "category": "Fashion & Accessories",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_127_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 127,
+        "product_name": "Ray-Ban Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "3_128_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 128,
+        "product_name": "Moleskine Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_129_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 129,
+        "product_name": "Coach Wallet",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_130_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 130,
+        "product_name": "Leuchtturm1917 Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "3_131_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 131,
+        "product_name": "Breville Microwave",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "3_132_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 132,
+        "product_name": "Dyson Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "299.99"
+    },
+    {
+        "id": "2_133_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 133,
+        "product_name": "Parker Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_134_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 134,
+        "product_name": "Lenovo Headphones",
+        "category": "Electronics",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_135_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 135,
+        "product_name": "KitchenAid Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "199.99"
+    },
+    {
+        "id": "3_136_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 136,
+        "product_name": "Ray-Ban Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "2_137_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 137,
+        "product_name": "Field Notes Pen Set",
+        "category": "Books & Stationery",
+        "amount": "15.99"
+    },
+    {
+        "id": "1_138_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 138,
+        "product_name": "Samsung Camera",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_139_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 139,
+        "product_name": "Moleskine Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "29.99"
+    },
+    {
+        "id": "3_140_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 140,
+        "product_name": "Samsung Headphones",
+        "category": "Electronics",
+        "amount": "120.00"
+    },
+    {
+        "id": "2_141_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 141,
+        "product_name": "Sony Headphones",
+        "category": "Electronics",
+        "amount": "150.00"
+    },
+    {
+        "id": "2_142_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 142,
+        "product_name": "Parker Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_143_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 143,
+        "product_name": "Apple Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "199.99"
+    },
+    {
+        "id": "3_144_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 144,
+        "product_name": "Michael Kors Belt",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_145_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 145,
+        "product_name": "Montblanc Pen Set",
+        "category": "Books & Stationery",
+        "amount": "350.00"
+    },
+    {
+        "id": "3_146_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 146,
+        "product_name": "Nike Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "79.99"
+    },
+    {
+        "id": "3_147_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 147,
+        "product_name": "Dell Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "79.99"
+    },
+    {
+        "id": "2_148_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 148,
+        "product_name": "Hamilton Beach Air Fryer",
+        "category": "Home & Kitchen",
+        "amount": "89.99"
+    },
+    {
+        "id": "1_149_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 149,
+        "product_name": "Bose Smartwatch",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "1_150_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 150,
+        "product_name": "Under Armour Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "75.99"
+    },
+    {
+        "id": "1_151_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 151,
+        "product_name": "Parker Planner",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_152_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 152,
+        "product_name": "Field Notes Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "3_153_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 153,
+        "product_name": "Sony Bluetooth Speaker",
+        "category": "Electronics",
+        "amount": "129.99"
+    },
+    {
+        "id": "2_154_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 154,
+        "product_name": "Ninja Toaster",
+        "category": "Home & Kitchen",
+        "amount": "79.99"
+    },
+    {
+        "id": "1_155_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 155,
+        "product_name": "Dyson Vacuum Cleaner",
+        "category": "Home & Kitchen",
+        "amount": "499.99"
+    },
+    {
+        "id": "2_156_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 156,
+        "product_name": "Michael Kors Sunglasses",
+        "category": "Fashion & Accessories",
+        "amount": "150.00"
+    },
+    {
+        "id": "3_157_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 157,
+        "product_name": "Rhodia Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "15.99"
+    },
+    {
+        "id": "1_158_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 158,
+        "product_name": "Sony Headphones",
+        "category": "Electronics",
+        "amount": "120.00"
+    },
+    {
+        "id": "3_159_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 159,
+        "product_name": "Hamilton Beach Coffee Maker",
+        "category": "Home & Kitchen",
+        "amount": "79.99"
+    },
+    {
+        "id": "2_160_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 160,
+        "product_name": "Reebok Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "89.99"
+    },
+    {
+        "id": "1_161_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 161,
+        "product_name": "Ninja Microwave",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "2_162_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 162,
+        "product_name": "Reebok Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_163_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 163,
+        "product_name": "Coach Watch",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "2_164_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 164,
+        "product_name": "Michael Kors Watch",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_165_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 165,
+        "product_name": "Bose Smartphone",
+        "category": "Electronics",
+        "amount": "799.99"
+    },
+    {
+        "id": "2_166_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 166,
+        "product_name": "Fossil Belt",
+        "category": "Fashion & Accessories",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_167_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 167,
+        "product_name": "Under Armour Foam Roller",
+        "category": "Fitness & Health",
+        "amount": "45.99"
+    },
+    {
+        "id": "3_168_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 168,
+        "product_name": "Field Notes Sketchbook",
+        "category": "Books & Stationery",
+        "amount": "12.99"
+    },
+    {
+        "id": "1_169_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 169,
+        "product_name": "Dell Camera",
+        "category": "Electronics",
+        "amount": "249.99"
+    },
+    {
+        "id": "1_170_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 170,
+        "product_name": "Adidas Dumbbells",
+        "category": "Fitness & Health",
+        "amount": "75.99"
+    },
+    {
+        "id": "3_171_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 171,
+        "product_name": "LG Headphones",
+        "category": "Electronics",
+        "amount": "120.00"
+    },
+    {
+        "id": "3_172_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 172,
+        "product_name": "Hamilton Beach Microwave",
+        "category": "Home & Kitchen",
+        "amount": "129.99"
+    },
+    {
+        "id": "3_173_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 173,
+        "product_name": "HP Camera",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "3_174_15/09/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 174,
+        "product_name": "Breville Toaster",
+        "category": "Home & Kitchen",
+        "amount": "89.99"
+    },
+    {
+        "id": "1_175_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 175,
+        "product_name": "Breville Blender",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "1_176_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 176,
+        "product_name": "Leuchtturm1917 Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_177_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 177,
+        "product_name": "Michael Kors Belt",
+        "category": "Fashion & Accessories",
+        "amount": "120.00"
+    },
+    {
+        "id": "1_178_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 178,
+        "product_name": "Breville Blender",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "2_179_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 179,
+        "product_name": "Ninja Toaster",
+        "category": "Home & Kitchen",
+        "amount": "79.99"
+    },
+    {
+        "id": "1_180_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 180,
+        "product_name": "KitchenAid Toaster",
+        "category": "Home & Kitchen",
+        "amount": "89.99"
+    },
+    {
+        "id": "2_181_15/07/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 181,
+        "product_name": "Dell Tablet",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "1_182_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 182,
+        "product_name": "Michael Kors Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "250.00"
+    },
+    {
+        "id": "3_183_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 183,
+        "product_name": "Tumi Watch",
+        "category": "Fashion & Accessories",
+        "amount": "350.00"
+    },
+    {
+        "id": "1_184_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 184,
+        "product_name": "Nike Yoga Mat",
+        "category": "Fitness & Health",
+        "amount": "49.99"
+    },
+    {
+        "id": "2_185_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 185,
+        "product_name": "Lenovo Tablet",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "3_186_15/07/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 186,
+        "product_name": "Samsung Laptop",
+        "category": "Electronics",
+        "amount": "1200.00"
+    },
+    {
+        "id": "2_187_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 187,
+        "product_name": "Samsung Smartwatch",
+        "category": "Electronics",
+        "amount": "299.99"
+    },
+    {
+        "id": "2_188_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 188,
+        "product_name": "LG Camera",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_189_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 189,
+        "product_name": "Leuchtturm1917 Desk Organizer",
+        "category": "Books & Stationery",
+        "amount": "29.99"
+    },
+    {
+        "id": "2_190_15/08/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 190,
+        "product_name": "Gucci Handbag",
+        "category": "Fashion & Accessories",
+        "amount": "2500.00"
+    },
+    {
+        "id": "1_191_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 191,
+        "product_name": "Gucci Backpack",
+        "category": "Fashion & Accessories",
+        "amount": "1500.00"
+    },
+    {
+        "id": "1_192_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 192,
+        "product_name": "Gucci Handbag",
+        "category": "Fashion & Accessories",
+        "amount": "2500.00"
+    },
+    {
+        "id": "1_193_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 193,
+        "product_name": "Dyson Vacuum Cleaner",
+        "category": "Home & Kitchen",
+        "amount": "499.99"
+    },
+    {
+        "id": "3_194_15/08/2023",
+        "user_id": 3,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 194,
+        "product_name": "Adidas Smart Scale",
+        "category": "Fitness & Health",
+        "amount": "129.99"
+    },
+    {
+        "id": "1_195_15/09/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 195,
+        "product_name": "Sony Tablet",
+        "category": "Electronics",
+        "amount": "499.99"
+    },
+    {
+        "id": "2_196_15/07/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 196,
+        "product_name": "Breville Vacuum Cleaner",
+        "category": "Home & Kitchen",
+        "amount": "249.99"
+    },
+    {
+        "id": "1_197_15/08/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/08/2023",
+        "product_id": 197,
+        "product_name": "Leuchtturm1917 Pen Set",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "2_198_15/09/2023",
+        "user_id": 2,
+        "date_of_purchase": "15/09/2023",
+        "product_id": 198,
+        "product_name": "Montblanc Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "29.99"
+    },
+    {
+        "id": "1_199_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 199,
+        "product_name": "Montblanc Best-Selling Book",
+        "category": "Books & Stationery",
+        "amount": "25.99"
+    },
+    {
+        "id": "1_200_15/07/2023",
+        "user_id": 1,
+        "date_of_purchase": "15/07/2023",
+        "product_id": 200,
+        "product_name": "Garmin Exercise Bike",
+        "category": "Fitness & Health",
+        "amount": "899.99"
+    }
+]
