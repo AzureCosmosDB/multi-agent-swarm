@@ -1,13 +1,15 @@
 import os
 import azure_open_ai
-
+from azure.identity import DefaultAzureCredential
 from azure.cosmos import CosmosClient, PartitionKey, exceptions
 
 # Initialize the Cosmos client
 # reference environment variables for the values of these variables
 endpoint = os.environ['AZURE_COSMOSDB_ENDPOINT']
-key = os.environ['AZURE_COSMOSDB_KEY']
-client = CosmosClient(endpoint, key)
+credential = DefaultAzureCredential()
+client = CosmosClient(endpoint, credential)
+print("Authenticated using DefaultAzureCredential")
+print("Cosmos client initialized")
 
 # Database and container names
 database_name = "MultiAgentDemoDB"
