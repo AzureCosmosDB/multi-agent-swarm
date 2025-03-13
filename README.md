@@ -26,16 +26,17 @@ The personal shopper example includes four main agents to handle various custome
 
 1. **Triage Agent**: Determines the type of request and transfers to the appropriate agent.
 2. **Product Agent**: Answers customer queries from the products container using [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/azure/cosmos-db/gen-ai/rag).
-2. **Refund Agent**: Manages customer refunds, requiring both user ID and item ID to initiate a refund.
-3. **Sales Agent**: Handles actions related to placing orders, requiring both user ID and product ID to complete a purchase.
+3. **Refund Agent**: Manages customer refunds, requiring both user ID and item ID to initiate a refund.
+4. **Sales Agent**: Handles actions related to placing orders, requiring both user ID and product ID to complete a purchase.
 
 ## Prerequisites
 
-- [Azure Cosmos DB account](https://learn.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) - ensure the [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search) feature is enabled.
+- [Azure Cosmos DB account](https://learn.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) - ensure the [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search) feature is enabled and that you have created a database called "MultiAgentDemoDB".
 - [Azure OpenAI API key](https://learn.microsoft.com/azure/ai-services/openai/overview) and endpoint.
 - [Azure OpenAI Embedding Deployment ID](https://learn.microsoft.com/azure/ai-services/openai/overview) for the RAG model.
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) to authenticate to Azure Cosmos DB and Azure OpenAI with [Entra ID RBAC](https://learn.microsoft.com/entra/identity/role-based-access-control/).
 
-## Setup
+## How to run locally
 
 Clone the repository:
 
@@ -50,26 +51,64 @@ Install dependencies:
 pip install git+https://github.com/openai/swarm.git
 pip install azure-cosmos==4.9.0
 pip install gradio
+pip install azure-identity
 ```
 
 Ensure you have the following environment variables set:
 ```shell
 AZURE_COSMOSDB_ENDPOINT=your_cosmosdb_account_uri
-AZURE_COSMOSDB_KEY=your_cosmosdb_account_key
-AZURE_OPENAI_API_KEY=your_azure_openai_api_key
 AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
 AZURE_OPENAI_EMBEDDINGDEPLOYMENTID=your_azure_openai_embeddingdeploymentid
 ```
 
-Once you have installed dependencies, run below and click on url provided in output:
+Once you have installed dependencies, authenticate in Azure using Azure CLI:
 
 ```shell
-python3 src/app/ai_chat_bot.py
+az login
+```
+
+If your signed-in Azure user does not already have access to Azure Cosmos DB via RBAC, run one of the following to grant the `Cosmos DB Built-in Data Contributor` role (choose bash or Powershell depending on which you are running in):
+
+```bash
+# Bash (replace <YOUR_COSMOSDB_ACCOUNT_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
+az role assignment create --assignee $(az ad signed-in-user show --query id -o tsv) \
+    --role "Cosmos DB Built-in Data Contributor" \
+    --scope $(az cosmosdb show --name <YOUR_COSMOSDB_ACCOUNT_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv)
+```
+
+```powershell
+# PowerShell (replace <YOUR_COSMOSDB_ACCOUNT_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
+$assignee = az ad signed-in-user show --query id -o tsv
+$scope = az cosmosdb show --name <YOUR_COSMOSDB_ACCOUNT_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv
+
+az role assignment create --assignee $assignee --role "Cosmos DB Built-in Data Contributor" --scope $scope
+```
+
+If your signed-in Azure user does not already have access to Azure OpenAI via RBAC, run one of the following to grant the `Cognitive Services User` role (choose bash or Powershell depending on which you are running in). 
+
+```bash
+# Bash (replace <YOUR_OPENAI_RESOURCE_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
+az role assignment create --assignee $(az ad signed-in-user show --query id -o tsv) \
+    --role "Cognitive Services User" \
+    --scope $(az cognitiveservices account show --name <YOUR_OPENAI_RESOURCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv)
+```
+
+```powershell
+# PowerShell (replace <YOUR_OPENAI_RESOURCE_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
+$assignee = az ad signed-in-user show --query id -o tsv
+$scope = az cognitiveservices account show --name <YOUR_OPENAI_RESOURCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv
+
+az role assignment create --assignee $assignee --role "Cognitive Services User" --scope $scope
+```
+
+Run below and click on URL provided in output:
+
+```shell
+python src/app/ai_chat_bot.py
 ```
 
 To see the agent handoffs, you can also run as an interactive Swarm CLI session using:
-    
-```shell
-python3 src/app/multi_agent_service.py
-```
 
+```shell
+python src/app/multi_agent_service.py
+```
