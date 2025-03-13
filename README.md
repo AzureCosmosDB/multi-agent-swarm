@@ -34,7 +34,7 @@ The personal shopper example includes four main agents to handle various custome
 - [Azure Cosmos DB account](https://learn.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) - ensure the [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search) feature is enabled and that you have created a database called "MultiAgentDemoDB".
 - [Azure OpenAI API key](https://learn.microsoft.com/azure/ai-services/openai/overview) and endpoint.
 - [Azure OpenAI Embedding Deployment ID](https://learn.microsoft.com/azure/ai-services/openai/overview) for the RAG model.
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) to authenticate to Azure Cosmos DB and Azure OpenAI with [Entra ID RBAC](https://learn.microsoft.com/entra/identity/role-based-access-control/).
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) to authenticate to Azure Cosmos DB with [Entra ID RBAC](https://learn.microsoft.com/entra/identity/role-based-access-control/).
 
 ## How to run locally
 
@@ -58,47 +58,32 @@ Ensure you have the following environment variables set:
 ```shell
 AZURE_COSMOSDB_ENDPOINT=your_cosmosdb_account_uri
 AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+AZURE_OPENAI_API_KEY=your_azure_openai_api_key
 AZURE_OPENAI_EMBEDDINGDEPLOYMENTID=your_azure_openai_embeddingdeploymentid
 ```
 
-Once you have installed dependencies, authenticate in Azure using Azure CLI:
+Once you have installed dependencies, authenticate locally with the below command:
 
 ```shell
 az login
 ```
 
-If your signed-in Azure user does not already have access to Azure Cosmos DB via RBAC, run one of the following to grant the `Cosmos DB Built-in Data Contributor` role (choose bash or Powershell depending on which you are running in):
+If your signed-in Azure user does not already have access to Azure Cosmos DB via RBAC, run the below to retrieve your sign-in user (principal id): 
 
 ```bash
-# Bash (replace <YOUR_COSMOSDB_ACCOUNT_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
-az role assignment create --assignee $(az ad signed-in-user show --query id -o tsv) \
-    --role "Cosmos DB Built-in Data Contributor" \
-    --scope $(az cosmosdb show --name <YOUR_COSMOSDB_ACCOUNT_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv)
+az ad signed-in-user show --query id -o tsv
 ```
 
-```powershell
-# PowerShell (replace <YOUR_COSMOSDB_ACCOUNT_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
-$assignee = az ad signed-in-user show --query id -o tsv
-$scope = az cosmosdb show --name <YOUR_COSMOSDB_ACCOUNT_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv
-
-az role assignment create --assignee $assignee --role "Cosmos DB Built-in Data Contributor" --scope $scope
-```
-
-If your signed-in Azure user does not already have access to Azure OpenAI via RBAC, run one of the following to grant the `Cognitive Services User` role (choose bash or Powershell depending on which you are running in). 
+Then run the below in Azure CLI shell (replace appropriate values) to create role assignment for Azure Cosmos DB:
 
 ```bash
-# Bash (replace <YOUR_OPENAI_RESOURCE_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
-az role assignment create --assignee $(az ad signed-in-user show --query id -o tsv) \
-    --role "Cognitive Services User" \
-    --scope $(az cognitiveservices account show --name <YOUR_OPENAI_RESOURCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv)
-```
-
-```powershell
-# PowerShell (replace <YOUR_OPENAI_RESOURCE_NAME> and <YOUR_RESOURCE_GROUP> with appropriate values)
-$assignee = az ad signed-in-user show --query id -o tsv
-$scope = az cognitiveservices account show --name <YOUR_OPENAI_RESOURCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query id -o tsv
-
-az role assignment create --assignee $assignee --role "Cognitive Services User" --scope $scope
+# Bash (replace appropriate values)
+az cosmosdb sql role assignment create \
+--resource-group "<resource group>" \
+--account-name "<Cosmos DB account name>" \
+--role-definition-name "Cosmos DB Built-in Data Contributor" \
+--principal-id "<principal id retrieved above>" \
+--scope "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.DocumentDB/databaseAccounts/<cosmos account>"
 ```
 
 Run below and click on URL provided in output:
