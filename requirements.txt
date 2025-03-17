@@ -1,0 +1,5 @@
+git+https://github.com/openai/swarm.git
+python-dotenv==1.0.1
+azure-cosmos==4.9.0
+gradio
+azure-identity

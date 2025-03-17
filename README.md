@@ -45,48 +45,30 @@ git clone https://github.com/AzureCosmosDB/multi-agent-swarm
 cd multi-agent-swarm
 ```
 
+Create and activate a virtual environment:
+
+```shell
+python -m venv venv
+source venv/bin/activate
+```
+
 Install dependencies:
 
 ```shell
-pip install git+https://github.com/openai/swarm.git
-pip install azure-cosmos==4.9.0
-pip install gradio
-pip install azure-identity
+# Install AZD
+curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-Ensure you have the following environment variables set:
+Deploy the Azure Services and inject the service names into the .env file
 ```shell
-AZURE_COSMOSDB_ENDPOINT=your_cosmosdb_account_uri
-AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
-AZURE_OPENAI_API_KEY=your_azure_openai_api_key
-AZURE_OPENAI_EMBEDDINGDEPLOYMENTID=your_azure_openai_embeddingdeploymentid
+azd up
 ```
-
-Once you have installed dependencies, authenticate locally with the below command:
 
 ```shell
-az login
+pip install -r requirements.txt
 ```
 
-If your signed-in Azure user does not already have access to Azure Cosmos DB via RBAC, run the below to retrieve your sign-in user (principal id): 
-
-```bash
-az ad signed-in-user show --query id -o tsv
-```
-
-Then run the below in Azure CLI shell (replace appropriate values) to create role assignment for Azure Cosmos DB:
-
-```bash
-# Bash (replace appropriate values)
-az cosmosdb sql role assignment create \
---resource-group "<resource group>" \
---account-name "<Cosmos DB account name>" \
---role-definition-name "Cosmos DB Built-in Data Contributor" \
---principal-id "<principal id retrieved above>" \
---scope "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.DocumentDB/databaseAccounts/<cosmos account>"
-```
-
-Run below and click on URL provided in output:
+From your terminal or IDE, run below and click on URL provided in output:
 
 ```shell
 python src/app/ai_chat_bot.py
