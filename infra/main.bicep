@@ -219,7 +219,7 @@ resource openAIGPTDeployment 'Microsoft.CognitiveServices/accounts/deployments@2
     model: {
       name: 'gpt-4o-mini'
       format: 'OpenAI'
-      version: '2024-07-08'
+      version: '2024-07-18'
     }
   }
 }

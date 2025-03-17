@@ -31,10 +31,9 @@ The personal shopper example includes four main agents to handle various custome
 
 ## Prerequisites
 
-- [Azure Cosmos DB account](https://learn.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) - ensure the [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search) feature is enabled and that you have created a database called "MultiAgentDemoDB".
-- [Azure OpenAI API key](https://learn.microsoft.com/azure/ai-services/openai/overview) and endpoint.
-- [Azure OpenAI Embedding Deployment ID](https://learn.microsoft.com/azure/ai-services/openai/overview) for the RAG model.
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) to authenticate to Azure Cosmos DB with [Entra ID RBAC](https://learn.microsoft.com/entra/identity/role-based-access-control/).
+- [Azure Cosmos DB account](https://learn.microsoft.com/azure/cosmos-db/) - configured for Serverless and [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search).
+- [Azure OpenAI Account](https://learn.microsoft.com/azure/ai-services/openai/overview) endpoint with embedding `text-3-embedding-large` and GPT `gpt-4o-mini` models deployed.
+- [Azure Developer CLI - AZD](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) to deploy Azure Services and configure environment variables.
 
 ## How to run locally
 
@@ -55,18 +54,20 @@ source venv/bin/activate
 Install dependencies:
 
 ```shell
+pip install -r requirements.txt
+```
+
+```shell
 # Install AZD
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-Deploy the Azure Services and inject the service names into the .env file
+Deploy the Azure Services via AZD and inject the service names into the .env file
 ```shell
 azd up
 ```
 
-```shell
-pip install -r requirements.txt
-```
+
 
 From your terminal or IDE, run below and click on URL provided in output:
 
