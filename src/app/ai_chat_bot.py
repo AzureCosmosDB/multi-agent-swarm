@@ -1,7 +1,10 @@
 import gradio as gr
 from swarm import Swarm, Agent
-from multi_agent_service import triage_agent, sales_agent, refunds_agent, product_agent  # Import all agents
+
+# Import all agents
+from multi_agent_service import triage_agent, sales_agent, refunds_agent, product_agent
 import azure_open_ai
+
 
 # Initialize Swarm client
 client = Swarm(client=azure_open_ai.aoai_client)
@@ -14,7 +17,7 @@ agent_map = {
     "Product Agent": product_agent,
 }
 
-
+# Input from user comes here, put breakpoint here to debug the agent workflow
 def chat_interface(user_input, agent_name="Triage Agent", messages=None):
     if messages is None:
         messages = []

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: multi-agent-swarm
+metadata:
+  template: multi-agent-swarm
+pipeline:
+  provider: github
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      interactive: true
+      continueOnError: false
+      run: |
+        echo "
+        AZURE_COSMOSDB_ENDPOINT=\"$AZURE_COSMOSDB_ENDPOINT\"
+        AZURE_OPENAI_ENDPOINT=\"$AZURE_OPENAI_ENDPOINT\"
+        AZURE_OPENAI_EMBEDDING_DEPLOYMENT=\"$AZURE_OPENAI_EMBEDDING_DEPLOYMENT\"
+        AZURE_OPENAI_GPT_DEPLOYMENT=\"$AZURE_OPENAI_GPT_DEPLOYMENT\"
+        " > ./src/app/.env
+    windows:
+      shell: pwsh
+      interactive: true
+      continueOnError: false
+      run: |
+        echo "
+        AZURE_COSMOSDB_ENDPOINT=""$env:AZURE_COSMOSDB_ENDPOINT""
+        AZURE_OPENAI_ENDPOINT=""$env:AZURE_OPENAI_ENDPOINT""
+        AZURE_OPENAI_EMBEDDING_DEPLOYMENT=""$env:AZURE_OPENAI_EMBEDDING_DEPLOYMENT""
+        AZURE_OPENAI_GPT_DEPLOYMENT=""$env:AZURE_OPENAI_GPT_DEPLOYMENT""
+        " > ./src/app/.env
