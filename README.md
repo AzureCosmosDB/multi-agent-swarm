@@ -44,12 +44,30 @@ git clone https://github.com/AzureCosmosDB/multi-agent-swarm
 cd multi-agent-swarm
 ```
 
-Create and activate a virtual environment:
+Create and activate a virtual environment (Linux/Mac):
 
 ```shell
 python -m venv venv
 source venv/bin/activate
 ```
+
+```shell
+# Install AZD
+curl -fsSL https://aka.ms/install-azd.sh | bash
+```
+
+Create and activate a virtual environment (Windows):
+
+```shell
+python -m venv venv
+venv\Scripts\activate
+```
+
+```shell
+# Install AZD
+powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
+```
+
 
 Install dependencies:
 
@@ -57,10 +75,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-```shell
-# Install AZD
-curl -fsSL https://aka.ms/install-azd.sh | bash
-```
+
 
 Deploy the Azure Services via AZD and inject the service names into the .env file
 ```shell
