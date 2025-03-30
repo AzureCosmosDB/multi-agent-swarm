@@ -14,24 +14,26 @@ print("Authenticated using DefaultAzureCredential")
 print("Cosmos client initialized")
 
 # Create global variables for the database and containers
-global DATABASE_NAME, USERS_CONTAINER_NAME, PURCHASE_HISTORY_CONTAINER_NAME, PRODUCTS_CONTAINER_NAME
-global DATABASE, USERS_CONTAINER, PURCHASE_HISTORY_CONTAINER, PRODUCTS_CONTAINER
+global DATABASE_NAME, USERS_CONTAINER_NAME, PURCHASE_HISTORY_CONTAINER_NAME, PRODUCTS_CONTAINER_NAME, CHAT_CONTAINER_NAME
+global DATABASE, USERS_CONTAINER, PURCHASE_HISTORY_CONTAINER, PRODUCTS_CONTAINER, CHAT_CONTAINER
 
 # Database and container names
 DATABASE_NAME = "MultiAgentDemoDB"
 USERS_CONTAINER_NAME = "Users"
 PURCHASE_HISTORY_CONTAINER_NAME = "PurchaseHistory"
 PRODUCTS_CONTAINER_NAME = "Products"
+CHAT_CONTAINER_NAME = "Chat"
 
 # Database and container references (hydrated in create_database)
 DATABASE = None
 USERS_CONTAINER = None
 PURCHASE_HISTORY_CONTAINER = None
 PRODUCTS_CONTAINER = None
+CHAT_CONTAINER = None
 
 # Create database and containers if they don't exist
 def create_database():
-    global DATABASE, USERS_CONTAINER, PURCHASE_HISTORY_CONTAINER, PRODUCTS_CONTAINER
+    global DATABASE, USERS_CONTAINER, PURCHASE_HISTORY_CONTAINER, PRODUCTS_CONTAINER, CHAT_CONTAINER
     
     try:
         DATABASE = client.create_database_if_not_exists(id=DATABASE_NAME)
@@ -77,6 +79,15 @@ def create_database():
             indexing_policy=diskann_indexing_policy
         )
         
+        CHAT_CONTAINER = DATABASE.create_container_if_not_exists(
+            id=CHAT_CONTAINER_NAME,
+            partition_key=PartitionKey(path=["/userId", "/sessionId"], kind="MultiHash"),
+            indexing_policy={
+                "automatic": True,
+                "indexingMode": "consistent"
+            }
+        )
+        
     except exceptions.CosmosHttpResponseError as e:
         print(f"Database creation failed: {e}")
 
@@ -97,7 +108,6 @@ def add_user(user_id, first_name, last_name, email, phone):
         print(f"User with user_id {user_id} already exists.")
 
 def add_purchase(user_id, date_of_purchase, item_id, amount):
-    
     
     purchase = {
         "id": f"{user_id}_{item_id}_{date_of_purchase}",
@@ -151,6 +161,50 @@ def preview_table(container_name):
             item.pop("product_description_vector", None)
         print(item)
 
+def get_chat_history(user_id, session_id):
+    
+    container = DATABASE.get_container_client(CHAT_CONTAINER_NAME)
+    
+    items = container.query_items(
+        query="SELECT * FROM c WHERE c.userId=@userId AND c.sessionId=@sessionId",
+        parameters=[
+            {"name": "@userId", "value": user_id},
+            {"name": "@sessionId", "value": session_id}
+        ],
+        enable_cross_partition_query=False
+    )
+    
+    # Convert iterator to list
+    items = list(items)
+    
+    # Clean up the items for display
+    for item in items:
+        item.pop("_rid", None)
+        item.pop("_self", None)
+        item.pop("_etag", None)
+        item.pop("_attachments", None)
+        item.pop("_ts", None)
+        print(item)
+        
+    return items
+
+def add_chat_message(message):
+    
+    # define the chat message structure
+    #chat_msg = {
+    #    "userId": "mark",
+    #    "sessionId": "1234",
+    #    "role": "assistant",
+    #    "sender": "Triage Agent",
+    #    "tool_name": "Transfer to Product",
+    #    "content": "various agent content",
+    #}
+    
+    try:
+        CHAT_CONTAINER.create_item(body=message, enable_automatic_id_generation=True)
+    except exceptions.CosmosResourceExistsError:
+        print(f"Chat message already exists for user_id {message["userId"]} in session {message["sessionId"]}.")
+
 # Initialize and load database
 def initialize_database():
     
@@ -162,7 +216,6 @@ def initialize_database():
         (1, "Alice", "Smith", "alice@test.com", "123-456-7890"),
         (2, "Bob", "Johnson", "bob@test.com", "234-567-8901"),
         (3, "Sarah", "Brown", "sarah@test.com", "555-567-8901"),
-        # Add more initial users here
     ]
 
     for user in initial_users:

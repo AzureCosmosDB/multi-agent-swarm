@@ -167,17 +167,15 @@ azure_cosmos_db.preview_table("PurchaseHistory")
 azure_cosmos_db.preview_table("Products")
 
 
+# define the transfer functions for each agent
 def transfer_to_sales():
     return sales_agent
-
 
 def transfer_to_refunds():
     return refunds_agent
 
-
 def transfer_to_product():
     return product_agent
-
 
 def transfer_to_triage():
     return triage_agent
@@ -239,6 +237,7 @@ triage_agent = Agent(
     If the user asks for product information, transfer to the Product Agent.
     If the user request is about making an order or purchasing an item, transfer to the Sales Agent.
     If the user request is about getting a refund on an item or returning a product, transfer to the Refunds Agent.
+    If the user requests something else, say you are not trained to handle that request.
     When you need more information to triage the request to an agent, ask a direct question without explaining why you're asking it.
     Do not share your thought process with the user! Do not make unreasonable assumptions on behalf of user."""
 )
@@ -276,9 +275,10 @@ def run_demo_loop(starting_agent, context_variables=None, stream=False, debug=Fa
             pretty_print_messages(response.messages)
 
         messages.extend(response.messages)
+        
         agent = response.agent
 
 if __name__ == "__main__":
     # Run the demo loop
-    run_demo_loop(triage_agent, debug=False)
+    run_demo_loop(triage_agent, debug=True)
 
