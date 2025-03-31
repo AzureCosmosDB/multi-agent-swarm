@@ -3,6 +3,7 @@
 A sample personal shopping AI Chatbot that can help with product enquiries, making sales, and refunding orders by transferring to different agents for those tasks.
 
 Features:
+
 - **Multi-agent**: [OpenAI Swarm](https://github.com/openai/swarm) to orchestrate multi-agent interactions with [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) API calls.
 - **Transactional data management**: planet scale [Azure Cosmos DB database service](https://learn.microsoft.com/azure/cosmos-db/introduction) to store transactional user and product operational data.
 - **Retrieval Augmented Generation (RAG)**: [vector search](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search) in Azure Cosmos DB with powerful [DiskANN index](https://www.microsoft.com/en-us/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/?msockid=091c323873cd6bd6392120ac72e46a98) to serve product enquiries from the same database.
@@ -68,21 +69,17 @@ venv\Scripts\activate
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
 
-
 Install dependencies:
 
 ```shell
 pip install -r requirements.txt
 ```
 
-
-
 Deploy the Azure Services via AZD and inject the service names into the .env file
+
 ```shell
 azd up
 ```
-
-
 
 From your terminal or IDE, run below and click on URL provided in output:
 
@@ -95,3 +92,5 @@ To see the agent handoffs, you can also run as an interactive Swarm CLI session 
 ```shell
 python src/app/multi_agent_service.py
 ```
+
+There are three products you can ask about: a hat, wool socks and shoes. You can follow the image above and ask the LLM about footwear, purchase them or the other two products, then return them.
