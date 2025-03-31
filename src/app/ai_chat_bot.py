@@ -4,7 +4,7 @@ from swarm import Swarm, Agent
 # Import all agents
 from multi_agent_service import triage_agent, sales_agent, refunds_agent, product_agent
 import azure_open_ai
-from azure_cosmos_db import add_chat_message, get_chat_history
+from azure_cosmos_db import add_agent_message, get_agent_history, tx_batch_add_agent_messages
 
 
 # Initialize Swarm client
@@ -18,11 +18,15 @@ agent_map = {
     "Product Agent": product_agent,
 }
 
+# Fetch agent history from Cosmos DB
+#messages = get_agent_history("mark", "1234")
+
 # Input from user comes here, put breakpoint here to debug the agent workflow
 def chat_interface(user_input, agent_name="Triage Agent", messages=None):
     
     if messages is None:
         messages = []
+
 
     # Update messages with user input
     messages.append({"role": "user", "content": user_input})
@@ -39,11 +43,64 @@ def chat_interface(user_input, agent_name="Triage Agent", messages=None):
         debug=False,
     )
     
-    messages.extend(response.messages)
+    user_id = "mark"
+    session_id = "1234"
+    
+    # Persist the user input and Agent responses to Cosmos DB in a Transaction
+    # Create a new message object for the user input to save in Cosmos DB
+    cosmos_message = []
+    cosmos_message.append({"role": "user", "content": user_input, "userId": user_id, "sessionId": session_id})
+    
+    for m in response.messages:
+        m["userId"] = user_id
+        m["sessionId"] = session_id
+        cosmos_message.append(m)
+    
+    tx_batch_add_agent_messages(user_id=user_id, session_id=session_id, messages=cosmos_message)
+    
     
     # Prepare chatbot messages for display
     # Gradle expects a list of dictionaries with "role" and "content"
     # Initialize chatbot messages list
+    messages.extend(response.messages)
+    
+    chatbot_messages = format_for_gradio(messages)
+    
+    #chatbot_messages = []
+
+    # for i, msg in enumerate(messages):
+    #     if msg["role"] == "user":
+    #         message = msg.get("content") or ""
+    #         # Append user messages directly
+    #         chatbot_messages.append({"role": "user", "content": f"<span style='color:blue'>{message}</span>\n\n"})
+
+    #     elif msg["role"] == "tool":
+    #         # Capture debug info from tool messages
+    #         tool_name = msg.get("tool_name") or ""
+    #         tool_content = msg.get("content") or ""
+    #         message = f"[Debug Info: Tool: {tool_name}, Content: {tool_content}]"
+    #         # Append tool messages with debug info
+    #         chatbot_messages.append({"role": "assistant", "content": f"<span style='color:red'>{message}</span>\n\n"})
+
+    #     elif msg["role"] == "assistant":
+    #         # Capture sender from assistant messages
+    #         responding_agent = msg.get("sender") or ""
+    #         agent_response = msg.get("content") or "Preparing Transfer..."
+
+    #         # Include sender in the assistant message content
+    #         message = f"[{responding_agent}] {agent_response}\n\n"
+    #         # Append assistant messages with the agent who sent
+    #         chatbot_messages.append({"role": "assistant", "content": message})
+
+    # Update agent state
+    next_agent = response.agent.name
+
+    return chatbot_messages, next_agent, messages
+
+
+def format_for_gradio(messages):
+    """Format messages for Gradio Chatbot component."""
+    
     chatbot_messages = []
 
     for i, msg in enumerate(messages):
@@ -69,26 +126,8 @@ def chat_interface(user_input, agent_name="Triage Agent", messages=None):
             message = f"[{responding_agent}] {agent_response}\n\n"
             # Append assistant messages with the agent who sent
             chatbot_messages.append({"role": "assistant", "content": message})
-        
-        # define a json object to hold the chatbot messages and insert into Cosmos DB
-        chat_msg = {
-            "userId": "mark",
-            "sessionId": "1234",
-            "role": msg.get("role", ""),
-            "sender": msg.get("sender", ""),
-            "tool_name": msg.get("tool_name", ""),
-            "content": msg.get("content", "")
-        }
-        
-        # Add the chat message to Cosmos DB
-        add_chat_message(message=chat_msg)
 
-
-    # Update agent state
-    next_agent = response.agent.name
-
-    return chatbot_messages, next_agent, messages
-
+    return chatbot_messages
 
 
 # Define Gradio UI
@@ -120,6 +159,13 @@ with gr.Blocks(css=".chatbox { background-color: #f9f9f9; border-radius: 10px; p
 
     agent_name = gr.State("Triage Agent")
     messages = gr.State([])
+    
+    # Fetch agent history from Cosmos DB
+    chatbot_messages = get_agent_history("mark", "1234")
+    chatbot_messages = format_for_gradio(chatbot_messages)
+    # doesn't work.
+    #messages=chatbot_messages
+    
 
     # Chat interaction
     user_input.submit(

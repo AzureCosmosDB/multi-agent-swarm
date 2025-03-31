@@ -1,4 +1,5 @@
 import config
+import uuid
 
 from azure.identity import DefaultAzureCredential
 from azure.cosmos import CosmosClient, PartitionKey, exceptions
@@ -161,7 +162,7 @@ def preview_table(container_name):
             item.pop("product_description_vector", None)
         print(item)
 
-def get_chat_history(user_id, session_id):
+def get_agent_history(user_id = None, session_id = None):
     
     container = DATABASE.get_container_client(CHAT_CONTAINER_NAME)
     
@@ -174,11 +175,18 @@ def get_chat_history(user_id, session_id):
         enable_cross_partition_query=False
     )
     
+    items = container.query_items("SELECT * FROM c",
+        enable_cross_partition_query=True
+    )
+    
     # Convert iterator to list
     items = list(items)
     
     # Clean up the items for display
     for item in items:
+        item.pop("id", None)
+        item.pop("userId", None)
+        item.pop("sessionId", None)
         item.pop("_rid", None)
         item.pop("_self", None)
         item.pop("_etag", None)
@@ -188,22 +196,32 @@ def get_chat_history(user_id, session_id):
         
     return items
 
-def add_chat_message(message):
-    
-    # define the chat message structure
-    #chat_msg = {
-    #    "userId": "mark",
-    #    "sessionId": "1234",
-    #    "role": "assistant",
-    #    "sender": "Triage Agent",
-    #    "tool_name": "Transfer to Product",
-    #    "content": "various agent content",
-    #}
+def add_agent_message(message):
     
     try:
         CHAT_CONTAINER.create_item(body=message, enable_automatic_id_generation=True)
     except exceptions.CosmosResourceExistsError:
-        print(f"Chat message already exists for user_id {message["userId"]} in session {message["sessionId"]}.")
+        print("error")
+        #print(f"Chat message already exists for user_id {message["userId"]} in session {message["sessionId"]}.")
+
+def tx_batch_add_agent_messages(user_id, session_id, messages):
+    
+    try:
+        batch_operations = []
+
+        for message in messages:
+            message["id"] = str(uuid.uuid4()) # Generate a new unique ID for each message
+            tuple_to_append = ("create", (message,))
+            batch_operations.append(tuple_to_append)
+
+        partition_key = [user_id, session_id]
+    
+        # Execute the batch operation
+        response = CHAT_CONTAINER.execute_item_batch(partition_key=partition_key, batch_operations=batch_operations)
+        #print("\nResults for the batch operations: {}\n".format(response))
+        
+    except exceptions.CosmosHttpResponseError as e:
+        print(f"An error occurred: {e.message}")
 
 # Initialize and load database
 def initialize_database():
