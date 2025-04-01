@@ -65,11 +65,11 @@ def persist_agent_history(user_input, messages):
     
     # Create a new message object for the user input to save in Cosmos DB
     cosmos_messages = []
-    cosmos_messages.append({"role": "user", "content": user_input, "userId": user_id, "sessionId": session_id})
+    cosmos_messages.append({"role": "user", "content": user_input, "user_id": user_id, "session_id": session_id})
     
     for m in messages:
-        m["userId"] = user_id
-        m["sessionId"] = session_id
+        m["user_id"] = user_id
+        m["session_id"] = session_id
         cosmos_messages.append(m)
     
     tx_batch_add_agent_messages(user_id=user_id, session_id=session_id, messages=cosmos_messages)
@@ -96,7 +96,6 @@ def format_for_gradio(messages):
             message = f"[Debug Info: Tool: {tool_name}, Content: {tool_content}]"
             # Append tool messages with debug info
             chatbot_messages.append({"role": "assistant", "content": f"<span style='color:red'>{message}</span>\n\n"})
-
         elif msg["role"] == "assistant":
             # Capture sender from assistant messages
             responding_agent = msg.get("sender") or ""
