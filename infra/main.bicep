@@ -137,6 +137,20 @@ resource sqlContainerPurchaseHistory 'Microsoft.DocumentDB/databaseAccounts/sqlD
   }
 }
 
+resource sqlContainerChat 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2024-11-15' = {
+  parent: sqlDatabase
+  name: 'Chat'
+  properties: {
+    resource: {
+      id: 'Chat'
+      partitionKey: {
+        paths: ['/user_id', '/session_id']
+        kind: 'MultiHash'
+      }
+    }
+  }
+}
+
 resource sqlContainerProducts 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2024-11-15' = {
   parent: sqlDatabase
   name: 'Products'

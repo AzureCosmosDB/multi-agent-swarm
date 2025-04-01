@@ -82,7 +82,7 @@ def create_database():
         
         CHAT_CONTAINER = DATABASE.create_container_if_not_exists(
             id=CHAT_CONTAINER_NAME,
-            partition_key=PartitionKey(path=["/userId", "/sessionId"], kind="MultiHash"),
+            partition_key=PartitionKey(path=["/user_id", "/session_id"], kind="MultiHash"),
             indexing_policy={
                 "automatic": True,
                 "indexingMode": "consistent"
@@ -167,10 +167,10 @@ def get_agent_history(user_id = None, session_id = None):
     container = DATABASE.get_container_client(CHAT_CONTAINER_NAME)
     
     items = container.query_items(
-        query="SELECT * FROM c WHERE c.userId=@userId AND c.sessionId=@sessionId",
+        query="SELECT * FROM c WHERE c.user_id=@user_id AND c.session_id=@session_id",
         parameters=[
-            {"name": "@userId", "value": user_id},
-            {"name": "@sessionId", "value": session_id}
+            {"name": "@user_id", "value": user_id},
+            {"name": "@session_id", "value": session_id}
         ],
         enable_cross_partition_query=False
     )
@@ -185,8 +185,8 @@ def get_agent_history(user_id = None, session_id = None):
     # Clean up the items for display
     for item in items:
         item.pop("id", None)
-        item.pop("userId", None)
-        item.pop("sessionId", None)
+        item.pop("user_id", None)
+        item.pop("session_id", None)
         item.pop("_rid", None)
         item.pop("_self", None)
         item.pop("_etag", None)
