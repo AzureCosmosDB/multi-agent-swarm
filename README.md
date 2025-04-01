@@ -93,4 +93,22 @@ To see the agent handoffs, you can also run as an interactive Swarm CLI session 
 python src/app/multi_agent_service.py
 ```
 
-There are three products you can ask about: a hat, wool socks and shoes. You can follow the image above and ask the LLM about footwear, purchase them or the other two products, then return them.
+There are three products you can ask about: a hat, wool socks and shoes. For more details on data like users and products in this sample, see the `initialize_database()` function in [azure_cosmos_db.py](./src/app/azure_cosmos_db.py)
+
+Here are a series of user prompts you can enter to watch this multi-agent application in action. Enter these one at a time and watch how the app responds. Feel free to explore with your own prompts.
+
+```text
+I need some help
+
+I'm looking for footwear
+
+Do you have any shoes
+
+I'd like to purchase these
+
+My user id is 1 and product id is 9
+
+These are the wrong size. Can i return them?
+
+My user id is 1
+```
