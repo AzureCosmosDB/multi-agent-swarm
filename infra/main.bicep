@@ -137,7 +137,7 @@ resource sqlContainerPurchaseHistory 'Microsoft.DocumentDB/databaseAccounts/sqlD
   }
 }
 
-resource sqlContainerChat 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2024-11-15' = {
+resource sqlContainerChat 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2025-05-01-preview' = {
   parent: sqlDatabase
   name: 'Chat'
   properties: {
@@ -146,6 +146,7 @@ resource sqlContainerChat 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/co
       partitionKey: {
         paths: ['/user_id', '/session_id']
         kind: 'MultiHash'
+        version: 2
       }
     }
   }
