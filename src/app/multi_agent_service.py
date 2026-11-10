@@ -8,6 +8,7 @@ from swarm.repl.repl import process_and_print_streaming_response, pretty_print_m
 import config
 import azure_cosmos_db
 import azure_open_ai
+import plugin_registry
 
 
 # Initialize Swarm client with Azure OpenAI client
@@ -237,15 +238,35 @@ triage_agent = Agent(
     If the user asks for product information, transfer to the Product Agent.
     If the user request is about making an order or purchasing an item, transfer to the Sales Agent.
     If the user request is about getting a refund on an item or returning a product, transfer to the Refunds Agent.
+    If the user wants to list, add, remove or write plugins/tools, transfer to the Plugin Manager.
     If the user requests something else, say you are not trained to handle that request.
     When you need more information to triage the request to an agent, ask a direct question without explaining why you're asking it.
     Do not share your thought process with the user! Do not make unreasonable assumptions on behalf of user."""
 )
 
-for f in triage_agent.functions:
-    print(f.__name__)
-
 triage_agent.functions = [transfer_to_sales, transfer_to_refunds, transfer_to_product]
+
+# Register existing tools as plugins and load any generated plugin files
+for _f in (refund_item, notify_customer, order_item, product_information):
+    plugin_registry.register_plugin(_f)
+plugin_registry.load_plugin_files()
+
+# Floating agent: reachable from every agent, fills/arranges/writes plugins, then returns
+plugin_manager_agent = Agent(
+    name="Plugin Manager",
+    model=config.AZURE_OPENAI_GPT_DEPLOYMENT,
+    functions=[plugin_registry.list_plugins, plugin_registry.arrange_plugin, plugin_registry.write_plugin],
+    instructions="""You manage the plugins (tool functions) available to the other agents.
+    Use list_plugins to see plugins, arrange_plugin to add or remove a plugin on an agent,
+    and write_plugin to create a new plugin from Python code. Plugin code must define a top-level function
+    named exactly like the plugin, with a docstring, and must not import os, sys, subprocess or use eval/exec/open.
+    When finished, call transfer_back."""
+)
+plugin_manager_agent.functions.append(plugin_registry.make_transfer_back(triage_agent))
+
+for _agent in (triage_agent, sales_agent, refunds_agent, product_agent):
+    plugin_registry.register_agent(_agent)
+    _agent.functions.append(plugin_registry.make_transfer_to_plugin_manager(_agent, plugin_manager_agent))
 
 def run_demo_loop(starting_agent, context_variables=None, stream=False, debug=False) -> None:
     
